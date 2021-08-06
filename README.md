@@ -3,7 +3,7 @@
 ## Getting Started
 
 1. Download this repository
-2. Download and install [python](https://www.python.org/downloads/release/python-3711/){:target="_blank"}
+2. Download and install [python](https://www.python.org/downloads/release/python-3711/)
 3. Create new `virtual environment`
    
   ```terminal
