@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title>{% block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="{% block keyword %}{% endblock %}">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="{% block cur_url %}{% endblock %}" itemprop="url">
+    <link rel="stylesheet" href="{% static 'home/vendor/bootstrap/4.4.1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/vendor/fontsawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+</head>
+<body>
+    {% block content_body %}
+    {% endblock %}
+
+    <script src="{% static 'home/vendor/ajax/libs/jquery/1.9.1/jquery.min.js' %}"></script>
+    <script src="{% static 'home/vendor/ajax/libs/popper.js/1.14.6/umd/popper.min.js' %}"></script>
+    <script src="{% static 'home/vendor/bootstrap/4.4.1/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/main.js' %}"></script>
+</body>
+</html>

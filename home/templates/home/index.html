@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+{% block title %}Project Task List | jamesmaduka.com{% endblock %}
+{% block description %}jamesmaduka project task app, login or create new project task list{% endblock %}
+{% block keyword %}Project management, task list, management app, create task project, login task app{% endblock %}
+{% block cur_url %}{% url 'home:home' %}{% endblock %}
+
+{% block content_body %}
+    <div class="container">
+        <div class="row task_body">
+            <div class="col-md-6">
+                <div class="card card-white">
+                    <div class="card-body">
+                        <form id="project" action="{% url 'home:home' %}" method="post">
+                            {% csrf_token %}
+                            <div class="project-form_Body">
+                                <input type="text" class="form-control enter-project" name="project_name" placeholder="Project name..." required>
+                                <button type="submit" class="btn btn-primary">Enter</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

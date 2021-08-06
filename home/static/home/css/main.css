@@ -1,0 +1,214 @@
+html, body{
+    background: #f8f8f8;
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+}
+
+.header_task {
+    background-color: #FFF;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.row.task_body {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.project-form_Body {
+    display: flex;
+}
+
+.project-form_Body button {
+    margin-left: 10px;
+}
+
+.task-nav {
+    margin-top: 10px
+}
+
+.task-list {
+    margin: 10px 0
+}
+
+.task-list .task-item {
+    padding: 15px;
+    border-radius: 0;
+    background: #FFF;
+    border-bottom: 1px #f1f5f8 solid;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.task-list .task-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 12px 24px 8px #b7b5b521
+}
+
+.task-list.only-active .task-item.complete {
+    display: none
+}
+
+.task-list.only-active #completed_task {
+    display: none
+}
+
+.task-list.only-active .task-item:not(.complete) {
+    display: block
+}
+
+.task-list.only-complete .task-item:not(.complete) {
+    display: none
+}
+
+.task-list.only-complete .task-item.complete {
+    display: block;
+}
+
+.task-list.only-complete #pending_task {
+    display: none;
+}
+
+.task-list .task-item.complete {
+    background-color: #f6f9fb;
+}
+
+.task-list .task-item.complete span:first-of-type {
+    text-decoration: line-through;
+}
+
+.task-list .task-item span.float-right {
+    font-size: 12px;
+    color: #a8a3a3;
+}
+
+.remove-task-item {
+    color: #ccc;
+    visibility: hidden;
+}
+
+.remove-task-item:hover {
+    color: #5f5f5f
+}
+
+.btn-action {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-action button:first-child {
+    margin: 0px 5px;
+}
+
+.btn-action span {
+    font-size: 12px;
+}
+
+.btn-action .trash {
+    color: #ff9676;
+}
+
+.btn-action .edit {
+    color: #76ecff;
+}
+
+.task-item:hover .remove-task-item {
+    visibility: visible
+}
+
+div.checker {
+    width: 18px;
+    height: 18px
+}
+
+div.checker input,
+div.checker span {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+div.checker span {
+    display: -moz-inline-box;
+    display: inline-block;
+    zoom: 1;
+    text-align: center;
+    background-position: 0 -260px;
+}
+
+div.checker, div.checker input, div.checker span {
+    width: 19px;
+    height: 19px;
+}
+
+div.checker {
+    position: relative;
+}
+
+div.button, div.button *, div.checker, div.checker * {
+    margin: 0;
+    padding: 0;
+}
+
+div.button, div.checker {
+    display: -moz-inline-box;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.task_header {
+    color: #718096;
+    font-size: 14px;
+    padding: 20px 15px;
+    border-bottom: 1px #f1f5f8 solid;
+}
+
+.card {
+    padding: 25px;
+    margin-bottom: 20px;
+    border: initial;
+    background: #fff;
+    border-radius: calc(.15rem - 1px);
+    box-shadow: 0 1px 15px rgba(0,0,0,0.04), 0 1px 6px rgba(0,0,0,0.04);
+}
+
+.card.project_card {
+    border-radius: 10px;
+    background-color: #f1f5f8;
+}
+
+.card.project_card .card-body {
+    padding: 0px;
+    border-radius: 10px;
+    background-color: #FFF;
+}
+
+.add-task {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.add-task button, .add-task button:focus {
+    padding: 20px 25px;
+    border-radius: 100%;
+    background-color: #8becff;
+    box-shadow: 0px 1px 14px 4px #caced0;
+}
+
+.add-task button > span {
+    color: #f8f8f8;
+}
+
+#add_task, #edit_task {
+    background-color: #8becff;
+    color: #f8f8f8;
+}

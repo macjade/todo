@@ -1,0 +1,100 @@
+{% extends 'home/base.html' %}
+{% block title %} {{ name }} Task List | jamesmaduka.com{% endblock %}
+{% block description %}jamesmaduka project task app, add, edit, delete, check project tasks{% endblock %}
+{% block keyword %}Project management, task list, management app, pending task, completed task{% endblock %}
+{% block cur_url %}{% url 'home:project' name|urlencode %}{% endblock %}
+
+{% block content_body %}
+    <div class="header_task">{{ name }} Task Manager</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-white project_card">
+                    <div class="card-body">
+                        <form id='change-task' method="post">
+                            {% csrf_token %}
+
+                        </form>
+                        <ul class="nav nav-pills task-nav">
+                            <li role="presentation" class="nav-item all-task active">
+                                <a href="#" class="nav-link">All</a>
+                            </li>
+                            <li role="presentation" class="nav-item active-task">
+                                <a href="#" class="nav-link">Pending</a>
+                            </li>
+                            <li role="presentation" class="nav-item completed-task">
+                                <a href="#" class="nav-link">Completed</a>
+                            </li>
+                        </ul>
+
+                        <div class="task-list">
+                            <form id="tk_del" method="post">
+                                {% csrf_token %}
+
+                            </form>
+                            <div id="pending_task" class="task_header">PENDING TASK</div>
+                            {% for pt in pending_task %}
+                                <div class="task-item" id="task_{{ pt.pk }}">
+                                    <div class="checker">
+                                        <span class="">
+                                            <input type="checkbox">
+                                        </span>
+                                    </div>
+                                    <span>{{ pt.task }}</span>
+                                    <span class="float-right">{{ pt.date_of_add|date }}</span>
+                                    <div class="btn-action">
+                                        <button class="btn"><span class="trash"><i class="fas fa-trash-alt"></i></span></button>
+                                        <button class="btn"><span class="edit"><i class="fas fa-pencil-alt"></i></span></button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div id="completed_task" class="task_header">COMPLETED TASK</div>
+                            {% for ct in completed_task %}
+                                <div class="task-item complete" id="task_{{ ct.pk }}">
+                                    <div class="checker">
+                                        <span class="">
+                                            <input type="checkbox">
+                                        </span>
+                                    </div>
+                                    <span>{{ ct.task }}</span>
+                                    <span class="float-right">{{ ct.date_of_add|date }}</span>
+                                    <div class="btn-action">
+                                        <button class="btn"><span class="trash"><i class="fas fa-trash-alt"></i></span></button>
+                                        <button class="btn"><span class="edit"><i class="fas fa-pencil-alt"></i></span></button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-task">
+            <button type='button' class="btn" data-toggle="modal" data-target="#addtaskModal">
+                <span><i class="fas fa-tasks"></i></span>
+            </button>
+        </div>
+    </div>
+    <div class="modal fade" id="addtaskModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addtaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addtaskModalLabel">New Task</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="new_taskForm" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="task-name" name="task-name" placeholder="New Task..." required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn" id="add_task">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
